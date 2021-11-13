@@ -9,7 +9,7 @@ function dispatchMessage(userMsgList){
     sendMsg(commonMsg);
   }
   else
-    console.error("Not enought!");
+    console.error("Not enough!");
 }
 
 
