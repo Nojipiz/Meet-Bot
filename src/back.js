@@ -9,7 +9,7 @@ function dispatchMessage(userMsgList){
     sendMsg(commonMsg);
   }
   else
-    console.error("Not enought!");
+    console.error("Not enough!");
 }
 
 
@@ -79,8 +79,6 @@ function getCommonMsg(msgList){
   if(commonMsg[1] < minRepetitionAmount) return undefined;
   else return commonMsg[0];
 }
-
-let commonList = '[{"name":"Tú","message":"asdf"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"ASD"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"SAD"},{"name":"Tú","message":"a"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"ASD"},{"name":"Tú","message":"asd"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"ASD"},{"name":"Tú","message":"asd"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"SADSA"},{"name":"Tú","message":"asdf"}]';
 
 let testList = JSON.parse(commonList);
 
