@@ -5,6 +5,7 @@ const classNameContent = "oIy2qc";
 let lastMess = [];
 let numMess = 0;
 let isPause = false;
+const interval;
 
 function getLastMessages(numm) {
     return new Promise((resolve, reject) => {
@@ -28,7 +29,7 @@ function getLastMessages(numm) {
 }
 
 function initBot() {
-    setInterval(() => {
+    interval = setInterval(() => {
         numMess = document.getElementsByClassName(classMess).length;
         if (numMess > numMessNormal && !isPause) {
             isPause = true;
@@ -41,3 +42,6 @@ function initBot() {
     }, 1000);
 }
 
+function stopBot() {
+    clearInterval(interval);
+}
