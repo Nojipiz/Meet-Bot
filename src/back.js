@@ -79,7 +79,3 @@ function getCommonMsg(msgList){
   if(commonMsg[1] < minRepetitionAmount) return undefined;
   else return commonMsg[0];
 }
-
-let testList = JSON.parse(commonList);
-
-dispatchMessage(testList);
