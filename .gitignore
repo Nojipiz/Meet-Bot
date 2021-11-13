@@ -66,7 +66,7 @@ typings/
 *.tgz
 
 # Yarn Integrity file
-.yarn-integrity
+.ya
 
 # dotenv environment variables file
 .env
@@ -102,3 +102,5 @@ dist
 
 # TernJS port file
 .tern-port
+
+.idea/
