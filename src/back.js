@@ -80,8 +80,6 @@ function getCommonMsg(msgList){
   else return commonMsg[0];
 }
 
-let commonList = '[{"name":"Tú","message":"asdf"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"ASD"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"SAD"},{"name":"Tú","message":"a"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"ASD"},{"name":"Tú","message":"asd"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"ASD"},{"name":"Tú","message":"asd"},{"name":"DAVID ORLANDO RODRÍGUEZ VARGAS","message":"SADSA"},{"name":"Tú","message":"asdf"}]';
-
 let testList = JSON.parse(commonList);
 
 dispatchMessage(testList);
