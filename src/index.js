@@ -24,7 +24,8 @@ function getLastMessages(numm) {
                 isPause = false;
                 return lastMess;
             });
-        }, 10000);
+
+        }, 20000);
     })
 }
 
