@@ -7,7 +7,7 @@ let numMess = 0;
 let isPause = false;
 let interval;
 
-function getLastMessages(numm) {
+function getLastMessages(numm,seconds) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(() => {
@@ -25,19 +25,19 @@ function getLastMessages(numm) {
                 return lastMess;
             });
 
-        }, 20000);
+        }, seconds*1000);
     })
 }
 
-function initBot() {
+function initBot(seconds=10000,minRepetitionAmount=3) {
     interval = setInterval(() => {
         numMess = document.getElementsByClassName(classMess).length;
         if (numMess > numMessNormal && !isPause) {
             isPause = true;
             let numm = numMessNormal;
             numMessNormal = numMess;
-            getLastMessages(numm).then((data) => {
-                dispatchMessage(data())
+            getLastMessages(numm,seconds).then((data) => {
+                dispatchMessage(data(),minRepetitionAmount)
             })
         }
     }, 1000);
