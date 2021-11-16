@@ -5,7 +5,7 @@ const classNameContent = "oIy2qc";
 let lastMess = [];
 let numMess = 0;
 let isPause = false;
-const interval;
+let interval;
 
 function getLastMessages(numm) {
     return new Promise((resolve, reject) => {
