@@ -1,6 +1,7 @@
-let minRepetitionAmount = 3
+let minRepetitionAmount = 3;
 
-function dispatchMessage(userMsgList){
+function dispatchMessage(userMsgList, minRepetition) {
+  minRepetitionAmount = minRepetition;
   if(!isValid(userMsgList)) return;
   const messageList = userMsgList.map(x => x.message); 
   const normalizedList = clearMsgs(messageList);
