@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 let keyActive = true;
 
 document.onkeypress = (e) => {
@@ -43,9 +43,5 @@ function pushToTalk(){
     });
     document.getElementsByClassName("p2hjYe TPpRNe")[0].dispatchEvent(ev);
 }
-=======
-const talkButton = document.getElementsByClassName('VfPpkd-Bz112c-LgbsSe yHy1rc eT1oJ tWDL4c uaILN bPEdgb qIiG8c FTMc0c N2RpBe jY9Dbb')[0];
 
-
->>>>>>> f34fd50f7c15bd8cdeb914b8a08ba5ddad81f6d1
 
