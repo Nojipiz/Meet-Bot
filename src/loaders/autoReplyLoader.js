@@ -46,3 +46,8 @@ function initBot(seconds = 10, minRepetitionAmount = 3) {
 function stopBot() {
   clearInterval(interval);
 }
+
+
+// Manually bot init
+// TODO: extension interface for enable/disable the bot
+initBot()

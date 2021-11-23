@@ -6,8 +6,8 @@ Bot that help you to answer in class
 
 ## 🛠️ How to use auto reply.
 
-You should run the bot opening the navigator console then copy and paste the `src/back.js` content, then copy and
-paste `src/index.js` content and run the bot with the next commands:
+You should run the bot opening the navigator console then copy and paste the `src/services/messageService.js` content, then copy and
+paste `src/loaders/autoReplyLoader.js` content and run the bot with the next commands:
 
 ````
 initBot() -> start the bot with default settings (10s to reply and 3 minimum repetition of the same message)
@@ -34,7 +34,7 @@ the `v` key.
 
 > PTK: Push to talk
 
-You should run the PTK, opening the navigator console then copy and paste the `src/pushToTalk.js` content.  
+You should run the PTK, opening the navigator console then copy and paste the `src/loaders/pushToTalk.js` content.  
 To use the PTK, you should press the `v` key to activate the microphone and the `v` key again to deactivate the
 microphone.
 

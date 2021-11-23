@@ -1,20 +1,19 @@
-let minRepetitionAmount = 3;
+let minRepetition = 3;
 
-function dispatchMessage(userMsgList, minRepetition) {
-  minRepetitionAmount = minRepetition;
-  if (!isValid(userMsgList)) return;
-  const messageList = userMsgList.map(x => x.message);
-  const normalizedList = clearMsgs(messageList);
-  const commonMsg = getCommonMsg(normalizedList);
-  if (commonMsg !== undefined) {
+function dispatchMessage(userDataList, minRepetition) {
+  if (!isValid(userDataList)) return;
+  this.minRepetition = minRepetition;
+  const msgList = userDataList.map(x => x.message);
+  const normalizedMsgList = clearMsgs(msgList);
+  const commonMsg = getCommonMsg(normalizedMsgList);
+  if (commonMsg !== undefined)
     sendMsg(commonMsg);
-  }
   else
     console.error("Not enough!");
 }
 
 function isValid(userMsgList) {
-  if (userMsgList.length < minRepetitionAmount)
+  if (userMsgList.length < minRepetition)
     return false;
   const userNames = userMsgList.map(x => x.name);
   if (userNames.includes("Tú"))
@@ -57,7 +56,7 @@ function getCommonMsg(msgList) {
 
   })
   const commonMsg = [...mostCommon.entries()].reduce((a, e) => e[1] > a[1] ? e : a);
-  if (commonMsg[1] < minRepetitionAmount) return undefined;
+  if (commonMsg[1] < minRepetition) return undefined;
   else return commonMsg[0];
 }
 
@@ -89,3 +88,4 @@ function pressEnterInElement(element) {
   });
   element.dispatchEvent(ev);
 }
+
