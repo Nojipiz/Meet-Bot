@@ -2,81 +2,90 @@ let minRepetitionAmount = 3;
 
 function dispatchMessage(userMsgList, minRepetition) {
   minRepetitionAmount = minRepetition;
-  if(!isValid(userMsgList)) return;
-  const messageList = userMsgList.map(x => x.message); 
+  if (!isValid(userMsgList)) return;
+  const messageList = userMsgList.map(x => x.message);
   const normalizedList = clearMsgs(messageList);
   const commonMsg = getCommonMsg(normalizedList);
-  if(commonMsg !== undefined){
+  if (commonMsg !== undefined) {
     sendMsg(commonMsg);
   }
   else
     console.error("Not enough!");
 }
 
-
-function isValid(userMsgList){
-  if(userMsgList.length < minRepetitionAmount) 
+function isValid(userMsgList) {
+  if (userMsgList.length < minRepetitionAmount)
     return false;
   const userNames = userMsgList.map(x => x.name);
-  if(userNames.includes("Tú")) 
+  if (userNames.includes("Tú"))
     return false;
   return true;
 }
 
-function sendMsg(finalMsg){
-  let textArea = document.getElementsByTagName('textarea')[0];
+function sendMsg(finalMsg) {
+  const textArea = document.getElementsByTagName('textarea')[0];
   textArea.value = finalMsg;
   pressEnterInElement(textArea);
 }
 
-function pressEnterInElement(element) {
-  var ev = new KeyboardEvent('keydown', {altKey:false,
-      bubbles: true,
-      cancelBubble: false, 
-      cancelable: true,
-      charCode: 0,
-      code: "Enter",
-      composed: true,
-      ctrlKey: false,
-      currentTarget: null,
-      defaultPrevented: true,
-      detail: 0,
-      eventPhase: 0,
-      isComposing: false,
-      isTrusted: true,
-      key: "Enter",
-      keyCode: 13,
-      location: 0,
-      metaKey: false,
-      repeat: false,
-      returnValue: false,
-      shiftKey: false,
-      type: "keydown",
-      which: 13});
-  element.dispatchEvent(ev);
-}
-
-function clearMsgs(msgList){
-   return msgList.map(x => {
-    x = x.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-    x = x.replace(/ +(?= )/g,'');
-    x = x.trim()
-    return x;
+function clearMsgs(msgList) {
+  return msgList.map(x => {
+    return normalizeMsg(x);
   });
 }
 
-function getCommonMsg(msgList){
+function normalizeMsg(message) {
+  message = message.replace(/ +(?= )/g, '')
+    .trim()
+    .toLowerCase()
+    .replace('ñ', '\001');
+  message = message.normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace('\001', 'ñ');
+  return message;
+}
+
+function getCommonMsg(msgList) {
   let mostCommon = new Map();
   msgList.forEach(x => {
 
-    if(mostCommon.has(x)){
+    if (mostCommon.has(x)) {
       const lastAmount = mostCommon.get(x);
-      mostCommon.set(x, lastAmount+1)
-    }else
+      mostCommon.set(x, lastAmount + 1)
+    } else
       mostCommon.set(x, 1);
-    
+
   })
-  const commonMsg = [...mostCommon.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
-  if(commonMsg[1] < minRepetitionAmount) return undefined;
+  const commonMsg = [...mostCommon.entries()].reduce((a, e) => e[1] > a[1] ? e : a);
+  if (commonMsg[1] < minRepetitionAmount) return undefined;
   else return commonMsg[0];
+}
+
+function pressEnterInElement(element) {
+  var ev = new KeyboardEvent('keydown', {
+    altKey: false,
+    bubbles: true,
+    cancelBubble: false,
+    cancelable: true,
+    charCode: 0,
+    code: "Enter",
+    composed: true,
+    ctrlKey: false,
+    currentTarget: null,
+    defaultPrevented: true,
+    detail: 0,
+    eventPhase: 0,
+    isComposing: false,
+    isTrusted: true,
+    key: "Enter",
+    keyCode: 13,
+    location: 0,
+    metaKey: false,
+    repeat: false,
+    returnValue: false,
+    shiftKey: false,
+    type: "keydown",
+    which: 13
+  });
+  element.dispatchEvent(ev);
 }
