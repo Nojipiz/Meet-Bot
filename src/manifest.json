@@ -3,6 +3,10 @@
   "name": "Test-Extension-Meet-Bot",
   "version": "0.0.1",
   "description": "Alpha version push to talk meet - extension",
+  "background": {
+    "service_worker": "app.js",
+    "type": "module"
+  },
   "content_scripts": [
     {
       "matches": [
