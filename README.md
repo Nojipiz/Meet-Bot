@@ -17,7 +17,7 @@ initBot(time, minRep) -> start the bot with the time in seconds to reply and the
 
 If you want stop the bot, just run the `stopBot()` function.
 
-## 🛠️ How o install extension (Google Chrome).
+## How to install extension (Google Chrome).
 
 First, you need download or clone this repository.  
 Then you should go to the [Chrome extensions page](chrome://extensions) and click on the **Enable Developer mode**
