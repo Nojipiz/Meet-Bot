@@ -7,6 +7,9 @@
     "service_worker": "app.js",
     "type": "module"
   },
+  "action": {
+    "default_popup": "./popup/index.html"
+  },
   "content_scripts": [
     {
       "matches": [
