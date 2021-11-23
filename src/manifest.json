@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "Test-Extension-Meet-Bot",
+  "version": "0.0.1",
+  "description": "Alpha version push to talk meet - extension",
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["pushToTalk.js"]
+    }
+  ]
+}
