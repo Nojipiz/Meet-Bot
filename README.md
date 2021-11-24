@@ -20,7 +20,7 @@ If you want stop the bot, just run the `stopBot()` function.
 ## How to install extension (Google Chrome).
 
 First, you need download or clone this repository.  
-Then you should go to the [Chrome extensions page](chrome://extensions) and click on the **Enable Developer mode**
+Then you should go to the **Chrome extensions page** (chrome://extensions) and click on the **Enable Developer mode**
 button.  
 Then click on the **Load unpacked extension** button and select the `src` folder.  
 Then click on the **Select Folder** button.
