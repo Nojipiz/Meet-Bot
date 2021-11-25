@@ -2,6 +2,7 @@ let numMessNormal = 0;
 const classMess = "GDhqjd";
 const classNameMess = "YTbUzc";
 const classNameContent = "oIy2qc";
+const classNameTime = "MuzmKe";
 let lastMess = [];
 let numMess = 0;
 let isPause = false;
@@ -15,9 +16,11 @@ function getLastMessages(numm, seconds) {
         lastMess = lastMess.map((item) => {
           const name = item.getElementsByClassName(classNameMess)[0].innerText;
           const message = item.getElementsByClassName(classNameContent)[0].innerText;
+          const time = item.getElementsByClassName(classNameTime)[0].innerText;
           return {
             name: name,
-            message: message
+            message: message,
+            time: time,
           }
         })
         numMessNormal = document.getElementsByClassName(classMess).length;
@@ -50,4 +53,4 @@ function stopBot() {
 
 // Manually bot init
 // TODO: extension interface for enable/disable the bot
-initBot()
+// initBot() // enable bot automatically
