@@ -15,10 +15,19 @@ function dispatchMessage(userDataList, minRepetition) {
 function isValid(userMsgList) {
   if (userMsgList.length < minRepetition)
     return false;
+  if (!isValidDate(userMsgList[userMsgList.length - 1]))
+    return false;
   const userNames = userMsgList.map(x => x.name);
   if (userNames.includes("Tú"))
     return false;
   return true;
+}
+
+function isValidDate(lastUser) {
+  const localTime = new Date();
+  const lastTime = lastUser.time;
+  const difftimeSeconds = (localTime - lastTime) / 1000;
+  return difftimeSeconds < 120;
 }
 
 function sendMsg(finalMsg) {
