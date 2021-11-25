@@ -52,4 +52,4 @@ function stopBot() {
 
 // Manually bot init
 // TODO: extension interface for enable/disable the bot
-// initBot() // enable bot automatically
+initBot() // enable bot automatically
