@@ -15,9 +15,11 @@ function getLastMessages(numm, seconds) {
         lastMess = lastMess.map((item) => {
           const name = item.getElementsByClassName(classNameMess)[0].innerText;
           const message = item.getElementsByClassName(classNameContent)[0].innerText;
+          const time = parseInt(item.dataset.timestamp);
           return {
             name: name,
-            message: message
+            message: message,
+            time: new Date(time),
           }
         })
         numMessNormal = document.getElementsByClassName(classMess).length;
@@ -50,4 +52,4 @@ function stopBot() {
 
 // Manually bot init
 // TODO: extension interface for enable/disable the bot
-initBot()
+// initBot() // enable bot automatically
