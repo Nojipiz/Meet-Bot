@@ -18,9 +18,7 @@ function isValid(userMsgList) {
   if (!isValidDate(userMsgList[userMsgList.length - 1]))
     return false;
   const userNames = userMsgList.map(x => x.name);
-  if (userNames.includes("Tú"))
-    return false;
-  return true;
+  return !userNames.includes("Tú");
 }
 
 function isValidDate(lastUser) {
