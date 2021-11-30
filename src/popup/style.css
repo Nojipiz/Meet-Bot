@@ -30,7 +30,6 @@
 	text-shadow:0px 1px 0px #2f6627;
 }
 
-
 .toggleButton:active {
 	position:relative;
 	top:1px;
@@ -47,11 +46,3 @@
   margin-right: 1rem;
   font-size: 0.8rem;
 }
-
-/* #pushToTalkButton { */
-/*   background-color: black; */
-/* } */
-
-/* #autoReplyButton{ */
-
-/* } */
