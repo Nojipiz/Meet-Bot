@@ -31,7 +31,7 @@ async function toggleAutoReply() {
   const storageRes = await chrome.storage.sync.get([autoReplyStatus]);
   const actualStatus = storageRes.autoReplyStatus;
   const newStatus = changeToNextStatus(actualStatus);
-  await chorme.storage.sync.set({ autoReplyStatus: newStatus });
+  await chrome.storage.sync.set({ autoReplyStatus: newStatus });
 }
 
 function syncAllFromStorage() {
