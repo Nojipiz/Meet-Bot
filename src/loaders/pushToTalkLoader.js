@@ -1,6 +1,7 @@
 let keyActive = true;
 
 document.onkeypress = (e) => {
+  if (isMsgAreaFocused()) return;
   if (keyActive && e.code === 'KeyV') {
     keyActive = false
     pushToTalk()
@@ -12,6 +13,11 @@ document.onkeyup = (e) => {
     keyActive = true
     pushToTalk()
   }
+}
+
+function isMsgAreaFocused() {
+  let focusElement = document.activeElement;
+  return focusElement.type === 'textarea'
 }
 
 function pushToTalk() {
