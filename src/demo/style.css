@@ -1,5 +1,44 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: red ;
+}
+
+.mainBanner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.infoSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainTitle{
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 550;
+}
+
+.infoBox{
+  width: 40%;
+  height: 8em; 
+  margin: 2em;
+  text-align: center;
+  padding-top: 0.5em;
+}
+
+.infoBox h1{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.shadowBox {
+  box-shadow:
+  0px 0px 2.2px rgba(0, 0, 0, 0.024),
+  0px 0px 6.1px rgba(0, 0, 0, 0.035),
+  0px 0px 14.8px rgba(0, 0, 0, 0.046),
+  0px 0px 49px rgba(0, 0, 0, 0.07);
+  border-radius: 1.3em;
 }
