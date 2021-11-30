@@ -1,4 +1,51 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.titleHeader {
+  margin: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleHeader h1{
+  font-weight: 580;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.toggleButton{
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding: 0.25rem;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.toggleButton:hover {
+	background-color:#5cbf2a;
+}
+.toggleButton:active {
+	position:relative;
+	top:1px;
+}
+
+.loaderStatusContainer {
+  margin: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaderStatusContainer p {
+  margin-right: 1rem;
+  font-size: 0.8rem;
 }
