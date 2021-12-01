@@ -24,6 +24,7 @@ async function togglePushToTalk() {
   const actualStatus = storageRes.pushToTalkStatus;
   const newStatus = changeToNextStatus(actualStatus);
   await chrome.storage.sync.set({ pushToTalkStatus: newStatus });
+  syncAllFromStorage();
 }
 
 async function toggleAutoReply() {
@@ -32,29 +33,16 @@ async function toggleAutoReply() {
   const actualStatus = storageRes.autoReplyStatus;
   const newStatus = changeToNextStatus(actualStatus);
   await chrome.storage.sync.set({ autoReplyStatus: newStatus });
+  syncAllFromStorage();
 }
 
-function syncAllFromStorage() {
-  chrome.storage.sync.get([pushToTalkButton.status], (res) => {
-    const status = res.pushToTalkStatus;
-    changeColorStatus(pushToTalkButton, status);
-  });
-  chrome.storage.sync.get([autoReplyButton.status], (res) => {
-    const status = res.autoReplyStatus;
-    changeColorStatus(autoReplyButton, status);
-  })
-}
-
-function storageListener() {
-  chrome.storage.onChanged.addListener((changes) => {
-    for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-      if (key == pushToTalkButton.status)
-        changeColorStatus(pushToTalkButton, newValue);
-      if (key == autoReplyButton.status)
-        changeColorStatus(autoReplyButton, newValue);
-    }
-  })
-  chrome.storage.sync.set({ active: "yes" })
+async function syncAllFromStorage() {
+  let storageRes = await chrome.storage.sync.get([pushToTalkButton.status]);
+  let status = storageRes.pushToTalkStatus;
+  changeColorStatus(pushToTalkButton, status);
+  storageRes = await chrome.storage.sync.get([autoReplyButton.status]);
+  status = storageRes.autoReplyStatus;
+  changeColorStatus(autoReplyButton, status);
 }
 
 function changeColorStatus(element, status) {
@@ -64,4 +52,3 @@ function changeColorStatus(element, status) {
 }
 
 syncAllFromStorage();
-storageListener();
