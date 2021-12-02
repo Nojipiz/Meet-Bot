@@ -9,6 +9,9 @@
   "action": {
     "default_popup": "./popup/index.html"
   },
+  "background": {
+    "service_worker": "app.js"
+  },
   "content_scripts": [
     {
       "matches": [
