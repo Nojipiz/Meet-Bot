@@ -9,7 +9,7 @@ let isPause = false;
 let interval;
 
 function getLastMessages(numm, seconds) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(() => {
         lastMsg = [...document.getElementsByClassName(classMess)].slice(numm - numMsg);
@@ -50,3 +50,6 @@ function stopBot() {
   clearInterval(interval);
 }
 
+//Manually start the bot
+// TODO: Integrate this method with buttons properly
+initBot();
