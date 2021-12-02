@@ -1,23 +1,26 @@
-let keyActive = true;
+let vKeyActive = true;
+
+
 
 document.onkeypress = (e) => {
-  if (isMsgAreaFocused()) return;
-  if (keyActive && e.code === 'KeyV') {
-    keyActive = false
-    pushToTalk()
+  if (!isValidEnv()) return;
+  if (vKeyActive && e.code === 'KeyV') {
+    vKeyActive = false;
+    pushToTalk();
   }
 }
 
 document.onkeyup = (e) => {
-  if (!keyActive && e.code === 'KeyV') {
-    keyActive = true
-    pushToTalk()
+  if (!vKeyActive && e.code === 'KeyV') {
+    vKeyActive = true;
+    pushToTalk();
   }
 }
 
-function isMsgAreaFocused() {
+function isValidEnv() {
+  if (pushToTalkActive == undefined || pushToTalkActive === 'disabled') return false;
   let focusElement = document.activeElement;
-  return focusElement.type === 'textarea'
+  return focusElement.type !== 'textarea';
 }
 
 function pushToTalk() {

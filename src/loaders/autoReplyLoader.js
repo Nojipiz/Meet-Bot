@@ -1,9 +1,10 @@
-let numMessNormal = 0;
 const classMess = "GDhqjd";
 const classNameMess = "YTbUzc";
 const classNameContent = "oIy2qc";
-let lastMess = [];
-let numMess = 0;
+
+let numMsgNormal = 0;
+let lastMsg = [];
+let numMsg = 0;
 let isPause = false;
 let interval;
 
@@ -11,8 +12,8 @@ function getLastMessages(numm, seconds) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(() => {
-        lastMess = [...document.getElementsByClassName(classMess)].slice(numm - numMess);
-        lastMess = lastMess.map((item) => {
+        lastMsg = [...document.getElementsByClassName(classMess)].slice(numm - numMsg);
+        lastMsg = lastMsg.map((item) => {
           const name = item.getElementsByClassName(classNameMess)[0].innerText;
           const message = item.getElementsByClassName(classNameContent)[0].innerText;
           const time = parseInt(item.dataset.timestamp);
@@ -22,9 +23,9 @@ function getLastMessages(numm, seconds) {
             time: new Date(time),
           }
         })
-        numMessNormal = document.getElementsByClassName(classMess).length;
+        numMsgNormal = document.getElementsByClassName(classMess).length;
         isPause = false;
-        return lastMess;
+        return lastMsg;
       });
 
     }, seconds * 1000);
@@ -33,11 +34,11 @@ function getLastMessages(numm, seconds) {
 
 function initBot(seconds = 10, minRepetitionAmount = 3) {
   interval = setInterval(() => {
-    numMess = document.getElementsByClassName(classMess).length;
-    if (numMess > numMessNormal && !isPause) {
+    numMsg = document.getElementsByClassName(classMess).length;
+    if (numMsg > numMsgNormal && !isPause) {
       isPause = true;
-      let numm = numMessNormal;
-      numMessNormal = numMess;
+      let numm = numMsgNormal;
+      numMsgNormal = numMsg;
       getLastMessages(numm, seconds).then((data) => {
         dispatchMessage(data(), minRepetitionAmount)
       })
@@ -49,7 +50,3 @@ function stopBot() {
   clearInterval(interval);
 }
 
-
-// Manually bot init
-// TODO: extension interface for enable/disable the bot
-initBot() // enable bot automatically

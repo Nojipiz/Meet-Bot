@@ -6,10 +6,6 @@
   "permissions": [
     "storage"
   ],
-  "background": {
-    "service_worker": "app.js",
-    "type": "module"
-  },
   "action": {
     "default_popup": "./popup/index.html"
   },
@@ -19,6 +15,7 @@
         "https://meet.google.com/*"
       ],
       "js": [
+        "./services/storageOptionsService.js",
         "./services/messageService.js",
         "./loaders/autoReplyLoader.js",
         "./loaders/pushToTalkLoader.js"

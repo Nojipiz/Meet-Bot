@@ -13,6 +13,8 @@ function dispatchMessage(userDataList, minRepetition) {
 }
 
 function isValid(userMsgList) {
+  if (autoReplyActive == undefined || autoReplyActive === 'disabled')
+    return false;
   if (userMsgList.length < minRepetition)
     return false;
   if (!isValidDate(userMsgList[userMsgList.length - 1]))
