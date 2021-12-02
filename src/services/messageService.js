@@ -97,4 +97,3 @@ function pressEnterInElement(element) {
   });
   element.dispatchEvent(ev);
 }
-
