@@ -1,10 +1,10 @@
 # 🤖 Meet-Bot
 
-## 📝 Description
+## 📝 DESCRIPTION
 
 Bot that help you to answer in class
 
-## 🛠️ How to use auto reply.
+## 🛠️ HOW TO USE AUTO REPLY
 
 You should run the bot opening the navigator console then copy and paste the `src/services/messageService.js` content, then copy and
 paste `src/loaders/autoReplyLoader.js` content and run the bot with the next commands:
@@ -17,7 +17,7 @@ initBot(time, minRep) -> start the bot with the time in seconds to reply and the
 
 If you want stop the bot, just run the `stopBot()` function.
 
-## How to install extension (Google Chrome).
+## HOW TO INSTALL EXTENSION (Google Chrome).
 
 First, you need download or clone this repository.  
 Then you should go to the **Chrome extensions page** (chrome://extensions) and click on the **Enable Developer mode**
@@ -30,7 +30,7 @@ In this way, you can refresh your page [Meet meeting](https://meet.google.com)  
 To unmute the microphone, you should hold pressed the `v` key and then to mute the microphone, you should release
 the `v` key.
 
-### 🎙️ How to use push to talk without extension (only for devs).
+### 🎙️ HOW TO USE PUSH TO TALK WITOUTH EXTENSION (only for devs).
 
 > PTK: Push to talk
 
